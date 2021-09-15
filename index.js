@@ -7,8 +7,9 @@ module.exports = function getRadioStations() {
   return new Promise((resolve, reject) => {
     get('https://api.hunter.fm/stations', res => {
       let data = '';
-      
+
       res.on('data', chunk => data += chunk);
+      
       res.on('end', () => {
         resolve(
           JSON
@@ -34,8 +35,8 @@ module.exports = function getRadioStations() {
                 },
                 streamsHLS: {
                   lowQuality: streamHLS.find(({ quality }) => quality === 0).url,
-                  mediumQuality: streamHLS.find(({ quality }) => quality === 0).url,
-                  highQuality: streamHLS.find(({ quality }) => quality === 0).url
+                  mediumQuality: streamHLS.find(({ quality }) => quality === 1).url,
+                  highQuality: streamHLS.find(({ quality }) => quality === 2).url
                 },
                 genres: genre.map(g => tileize(g.name)),
                 previousSong: {
@@ -69,8 +70,8 @@ module.exports = function getRadioStations() {
                     mediumQuality: `https://cdn.hunter.fm//image/thumb/music/${live.next.hashThumb}/300x300ht.jpg`,
                     highQuality: `https://cdn.hunter.fm//image/thumb/music/${live.next.hashThumb}/1000x1000ht.jpg`
                   },
-                  singers: live.now.singers.map(s => tileize(s)),
-                  feats: live.now.feats ? live.now.feats.map(s => tileize(s)) : null
+                  singers: live.next.singers.map(s => tileize(s)),
+                  feats: live.next.feats ? live.next.feats.map(s => tileize(s)) : null
                 }
               };
             })
