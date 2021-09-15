@@ -7,9 +7,8 @@ module.exports = function getRadioStations() {
   return new Promise((resolve, reject) => {
     get('https://api.hunter.fm/stations', res => {
       let data = '';
-
+      
       res.on('data', chunk => data += chunk);
-
       res.on('end', () => {
         resolve(
           JSON
@@ -47,7 +46,7 @@ module.exports = function getRadioStations() {
                     highQuality: `https://cdn.hunter.fm//image/thumb/music/${live.history[0].hashThumb}/1000x1000ht.jpg`
                   },
                   singers: live.history[0].singers.map(s => tileize(s)),
-                  feats: live.history[0].feats?.map(s => tileize(s)) || null,
+                  feats: live.history[0].feats ? live.history[0].feats.map(s => tileize(s)) : null,
                   duration: live.history[0].info.duration * 1000
                 },
                 currentSong: {
@@ -58,7 +57,7 @@ module.exports = function getRadioStations() {
                     highQuality: `https://cdn.hunter.fm//image/thumb/music/${live.now.hashThumb}/1000x1000ht.jpg`
                   },
                   singers: live.now.singers.map(s => tileize(s)),
-                  feats: live.now.feats?.map(s => tileize(s)) || null,
+                  feats: live.now.feats ? live.now.feats.map(s => tileize(s)) : null,
                   duration: live.now.info.duration * 1000,
                   startedAt: new Date(live.now.time.start),
                   endsAt: new Date(live.now.time.end)
@@ -71,7 +70,7 @@ module.exports = function getRadioStations() {
                     highQuality: `https://cdn.hunter.fm//image/thumb/music/${live.next.hashThumb}/1000x1000ht.jpg`
                   },
                   singers: live.now.singers.map(s => tileize(s)),
-                  feats: live.now.feats?.map(s => tileize(s)) || null
+                  feats: live.now.feats ? live.now.feats.map(s => tileize(s)) : null
                 }
               };
             })
