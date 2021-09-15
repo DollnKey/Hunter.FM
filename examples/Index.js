@@ -13,7 +13,7 @@ client.on('message', async message => {
             const connection = await message.member.voice.channel.join();
             getRadioStations()
             .then(stations => {
-                var music = stations[0].strems.lowQuality
+                var music = stations[0].streams.lowQuality
                 connection.play(music)
             }).catch(console.error);
         } else {
