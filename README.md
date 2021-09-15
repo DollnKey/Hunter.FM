@@ -1,53 +1,29 @@
 <div align="center">
-  <h1>Hunter.FM</h1>
+  <h1>🎧 Hunter.FM 🎧</h1>
   <p>
     <a href="https://www.npmjs.com/package/hunter.fm"><img src="https://img.shields.io/npm/v/hunter.fm.svg?color=3884FF&label=npm" alt="NPM version" /></a>
     <a href="https://www.npmjs.com/package/hunter.fm"><img src="https://img.shields.io/npm/dt/hunter.fm.svg?color=3884FF" alt="NPM downloads" /></a>
     <a href="https://www.npmjs.com/package/hunter.fm"><img src="https://img.shields.io/badge/dependencies-0-brightgreen?color=3884FF" alt="Dependencies" /></a>
   </p>
-  <p>
-    <a href="https://www.buymeacoffee.com/5antos" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-blue.png" alt="Buy Me A Coffee" height="41" width="174"></a>
-  </p>
+  <p>- Autor: <a href="https://github.com/5antos">5antos</a></p>
   <br><br>
 </div>
 
-An unofficial wrapper for the official Hunter.FM API, dependency-free.
+An unofficial wrapper for the official **Hunter.FM** API, dependency-free.
 
 Installation
 ------------
 
-**Node.js 14.0.0 or newer is required.**  
+**Node.js 13.0.0 or older is required.**  
 
 ```sh-session
-npm install hunter.fm
-yarn add hunter.fm
-pnpm add hunter.fm
+npm install DollnKey/hunter.fm
+yarn add DollnKey/hunter.fm
+pnpm add DollnKey/hunter.fm
 ```
 
 Example Usage
 -------------
 
 
-```js
-const getRadioStations = require('hunter.fm');
-
-getRadioStations()
-  .then(stations => {
-    console.log(stations);
-  })
-  .catch(console.error);
-```
-[Try it yourself](https://npm.runkit.com/hunter.fm)
-
-Contributing
-------------
-
-Before [creating an issue](https://github.com/5antos/hunter.fm/issues), please ensure that it hasn't already been reported or suggested.
-
-When [submitting a new pull request](https://github.com/5antos/hunter.fm/pulls), please make sure the code style/format used is the same as the one used in the original code.
-
-
-License
--------
-
-Refer to the [LICENSE](LICENSE) file.
+[Código de Exemplo](https://github.com/DollnKey/Hunter.FM/tree/main/examples/Index.js)
